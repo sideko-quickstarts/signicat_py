@@ -1,0 +1,35 @@
+api:
+  - name: signicat-dem
+    path: dem
+  - name: signicat-sign
+    path: sign
+
+languages:
+  java:
+    sdk_name: signicatdemjava
+    group_id: com.yourorg
+  python:
+    sdk_name: signicat_dem_py
+  typescript:
+    sdk_name: signicat_dem_ts
+  rust:
+    sdk_name: signicat_dem_rs
+    cli: false
+  go:
+    sdk_name: signicat_dem_go
+  csharp:
+    sdk_name: SignicatDemCSharp
+  
+servers:
+  - url: https://api.signicat.com/dem
+    name: dem
+    default: true
+    api: signicat-dem
+    group: default
+  - url: https://api.signicat.com/sign
+    name: sign
+    default: true
+    api: signicat-sign
+    group: default
+
+default_module_structure: flat

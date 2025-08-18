@@ -1,14 +1,5 @@
 
-# Digital Evidence Management API Python SDK
-
-## Overview
-# Introduction
-Signicat's Digital Evidence Management API offers a simple way to capture audit trail data. This can include
- information on authentications, payment transactions or acceptance of GDPR consent messages.
-
-The Digital Evidence Management API is a RESTful API that uses the OAuth 2.0 protocol for authorisation. All request
- and response bodies are formatted in JSON.
-
+# Signicat API Demo Python SDK
 
 #### Synchronous Client
 
