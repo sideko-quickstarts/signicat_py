@@ -550,16 +550,13 @@ class SignClient:
         """
         _header: typing.Dict[str, str] = {}
         _header["Content-Type"] = str(content_type)
-        _content = data
-        _content_type = "text/plain"
         return self._base_client.request(
             method="POST",
             path="/documents",
             service_name="sign",
             auth_names=["bearerAuth"],
             headers=_header,
-            content=_content,
-            content_type=_content_type,
+            files={"file": data},
             cast_to=models.PostDocumentResponse,
             request_options=request_options or default_request_options(),
         )
@@ -1174,16 +1171,13 @@ class AsyncSignClient:
         """
         _header: typing.Dict[str, str] = {}
         _header["Content-Type"] = str(content_type)
-        _content = data
-        _content_type = "text/plain"
         return await self._base_client.request(
             method="POST",
             path="/documents",
             service_name="sign",
             auth_names=["bearerAuth"],
             headers=_header,
-            content=_content,
-            content_type=_content_type,
+            files={"file": data},
             cast_to=models.PostDocumentResponse,
             request_options=request_options or default_request_options(),
         )
