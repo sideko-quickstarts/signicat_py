@@ -1,3 +1,6 @@
+# sign
+
+## Module Functions
 
 ### Delete a document collection <a name="delete_document_collection"></a>
 
@@ -9,7 +12,7 @@ Deletes the document collection with the given ID.
 
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
-| `documentCollectionId` | ✓ | The unique ID of the document collection. | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
+| `document_collection_id` | ✓ | The unique ID of the document collection. | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
 
 #### Synchronous Client
 
@@ -39,15 +42,13 @@ res = await client.sign.delete_document_collection(
 
 ### Permanently delete a single document and its metadata <a name="delete_document"></a>
 
-
-
 **API Endpoint**: `DELETE /documents/{documentId}`
 
 #### Parameters
 
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
-| `documentId` | ✓ | Document ID parameter | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
+| `document_id` | ✓ | Document ID parameter | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
 
 #### Synchronous Client
 
@@ -83,7 +84,7 @@ Deletes the signing session with the given ID.
 
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
-| `sessionId` | ✓ |  | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
+| `session_id` | ✓ |  | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
 
 #### Synchronous Client
 
@@ -121,7 +122,7 @@ Returns the document collection with the given ID.
 
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
-| `documentCollectionId` | ✓ | The unique ID of the document collection. | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
+| `document_collection_id` | ✓ | The unique ID of the document collection. | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
 
 #### Synchronous Client
 
@@ -159,15 +160,13 @@ res = await client.sign.get_document_collection(
 
 ### Retrieve a single document <a name="get_document"></a>
 
-
-
 **API Endpoint**: `GET /documents/{documentId}`
 
 #### Parameters
 
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
-| `documentId` | ✓ | Document ID parameter | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
+| `document_id` | ✓ | Document ID parameter | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
 
 #### Synchronous Client
 
@@ -193,15 +192,13 @@ res = await client.sign.get_document(document_id="3e4666bf-d5e5-4aa7-b8ce-cefe41
 
 ### Retrieve all information stored about a single document <a name="get_document_info"></a>
 
-
-
 **API Endpoint**: `GET /documents/{documentId}/metadata`
 
 #### Parameters
 
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
-| `documentId` | ✓ | Document ID parameter | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
+| `document_id` | ✓ | Document ID parameter | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
 
 #### Synchronous Client
 
@@ -289,7 +286,7 @@ Returns the signing session with the given ID.
 
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
-| `sessionId` | ✓ |  | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
+| `session_id` | ✓ |  | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
 
 #### Synchronous Client
 
@@ -321,11 +318,9 @@ res = await client.sign.get_signing_session(
 [SigningSession](/signicat_dem_py/types/models/signing_session.py)
 
 ##### Example
-`{"documents": [{"action": "SIGN", "document_collection_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0853", "document_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0857"}], "due_date": "2025-04-01T17:32:28Z", "id": "f05d0dce-a7af-432b-b6b8-e455ab7c0852", "sender_display_name": "Corporation incorporated", "sign_text": "Please sign this document", "signature_url": "https://signtest-account.sandbox.signicat.com/sign/?sessionId=8ce3dac2-74b3-429c-adf7-fe6d277186d0", "signing_setup": [{"additional_parameters": {}, "identity_providers": [{"idp_name": "string"}], "signing_flow": "AUTHENTICATION_BASED"}], "title": "Business Process"}`
+`{"documents": [{"action": "SIGN", "document_collection_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0853", "document_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0857"}], "due_date": "2025-04-01T17:32:28Z", "id": "f05d0dce-a7af-432b-b6b8-e455ab7c0852", "sender_display_name": "Corporation incorporated", "sign_text": "Please sign this document", "signature_url": "https://signtest-account.sandbox.signicat.com/sign/?sessionId=8ce3dac2-74b3-429c-adf7-fe6d277186d0", "signing_setup": [{"additional_parameters": {"sbid_end_user_ip": "127.0.0.1", "sbid_flow": "QR"}, "identity_providers": [{"idp_name": "string"}], "signing_flow": "AUTHENTICATION_BASED"}], "title": "Business Process"}`
 
 ### Store optional descriptive data about a stored document <a name="update_document_metadata"></a>
-
-
 
 **API Endpoint**: `PATCH /documents/{documentId}/metadata`
 
@@ -333,12 +328,14 @@ res = await client.sign.get_signing_session(
 
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
-| `documentId` | ✓ | Document ID parameter | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
-| `createdAt` | ✗ |  | `"2023-04-12T10:30:00Z"` |
+| `document_id` | ✓ | Document ID parameter | `"3e4666bf-d5e5-4aa7-b8ce-cefe41c7568a"` |
+| `created_at` | ✗ |  | `"2023-04-12T10:30:00Z"` |
 | `description` | ✗ | A description of the document for display purposes. Optional metadata about the stored document which the customer can supply. | `"Invoice for order #001"` |
-| `documentHash` | ✗ |  | `{"hash_algorithm": "SHA256"}` |
+| `document_hash` | ✗ |  | `{"hash_algorithm": "SHA256"}` |
+| `└─ hash` | ✗ |  | `"string"` |
+| `└─ hash_algorithm` | ✗ |  | `"SHA256"` |
 | `filename` | ✗ | A name to use if the document is to be stored as a file. Optional metadata about the stored document which the customer can supply. | `"invoice_001.pdf"` |
-| `mimeType` | ✗ |  | `"application/pdf"` |
+| `mime_type` | ✗ |  | `"application/pdf"` |
 | `title` | ✗ | A title of the document for display purposes. Optional metadata about the stored document which the customer can supply. | `"Invoice #001"` |
 
 #### Synchronous Client
@@ -398,7 +395,8 @@ Creates new document collection. A document collection is a logical grouping of 
 | `documents` | ✓ |  | `[{"description": "Terms of Service", "document_id": "15197b79-6333-4fa5-9e4c-23b9392a838f"}]` |
 | `id` | ✗ | The unique ID of the document collection. | `"f05d0dce-a7af-432b-b6b8-e455ab7c0858"` |
 | `output` | ✗ |  | `{}` |
-| `packageTo` | ✗ | A list of formats the collection should be packaged to when all sessions connected to it are signed. | `["PADES_CONTAINER"]` |
+| `└─ packages` | ✗ |  | `[{"package_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0863", "result_document_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0863"}]` |
+| `package_to` | ✗ | A list of formats the collection should be packaged to when all sessions connected to it are signed. | `["PADES_CONTAINER"]` |
 
 #### Synchronous Client
 
@@ -451,14 +449,13 @@ res = await client.sign.create_document_collection(
 Uploads the document as a binary stream; MIME type is defined by the
 Content-Type header. The response will be the resulting document reference.
 
-
 **API Endpoint**: `POST /documents`
 
 #### Parameters
 
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
-| `Content-Type` | ✓ | Content type header | `"string"` |
+| `content_type` | ✓ | Content type header | `"string"` |
 | `data` | ✓ |  | `open("uploads/file.pdf", "rb")` |
 
 #### Synchronous Client
@@ -505,7 +502,7 @@ Creates a new signing session.
 
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
-| `data` | ✓ |  | `[{"documents": [{"action": "SIGN", "document_collection_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0853", "document_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0857"}], "due_date": "2025-04-01T17:32:28Z", "id": "f05d0dce-a7af-432b-b6b8-e455ab7c0852", "sender_display_name": "Corporation incorporated", "sign_text": "Please sign this document", "signature_url": "https://signtest-account.sandbox.signicat.com/sign/?sessionId=8ce3dac2-74b3-429c-adf7-fe6d277186d0", "signing_setup": [{"additional_parameters": {}, "identity_providers": [{"idp_name": "string"}], "signing_flow": "AUTHENTICATION_BASED"}], "title": "Business Process"}]` |
+| `data` | ✓ |  | `[{"documents": [{"action": "SIGN", "document_collection_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0853", "document_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0857"}], "due_date": "2025-04-01T17:32:28Z", "id": "f05d0dce-a7af-432b-b6b8-e455ab7c0852", "sender_display_name": "Corporation incorporated", "sign_text": "Please sign this document", "signature_url": "https://signtest-account.sandbox.signicat.com/sign/?sessionId=8ce3dac2-74b3-429c-adf7-fe6d277186d0", "signing_setup": [{"additional_parameters": {"sbid_end_user_ip": "127.0.0.1", "sbid_flow": "QR"}, "identity_providers": [{"idp_name": "string"}], "signing_flow": "AUTHENTICATION_BASED"}], "title": "Business Process"}]` |
 
 #### Synchronous Client
 
@@ -531,7 +528,10 @@ res = client.sign.create_signing_session(
             "signature_url": "https://signtest-account.sandbox.signicat.com/sign/?sessionId=8ce3dac2-74b3-429c-adf7-fe6d277186d0",
             "signing_setup": [
                 {
-                    "additional_parameters": {},
+                    "additional_parameters": {
+                        "sbid_end_user_ip": "127.0.0.1",
+                        "sbid_flow": "QR",
+                    },
                     "identity_providers": [{"idp_name": "string"}],
                     "signing_flow": "AUTHENTICATION_BASED",
                 }
@@ -567,7 +567,10 @@ res = await client.sign.create_signing_session(
             "signature_url": "https://signtest-account.sandbox.signicat.com/sign/?sessionId=8ce3dac2-74b3-429c-adf7-fe6d277186d0",
             "signing_setup": [
                 {
-                    "additional_parameters": {},
+                    "additional_parameters": {
+                        "sbid_end_user_ip": "127.0.0.1",
+                        "sbid_flow": "QR",
+                    },
                     "identity_providers": [{"idp_name": "string"}],
                     "signing_flow": "AUTHENTICATION_BASED",
                 }
@@ -585,4 +588,5 @@ res = await client.sign.create_signing_session(
 List of [SigningSession](/signicat_dem_py/types/models/signing_session.py)
 
 ##### Example
-`[{"documents": [{"action": "SIGN", "document_collection_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0853", "document_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0857"}], "due_date": "2025-04-01T17:32:28Z", "id": "f05d0dce-a7af-432b-b6b8-e455ab7c0852", "sender_display_name": "Corporation incorporated", "sign_text": "Please sign this document", "signature_url": "https://signtest-account.sandbox.signicat.com/sign/?sessionId=8ce3dac2-74b3-429c-adf7-fe6d277186d0", "signing_setup": [{"additional_parameters": {}, "identity_providers": [{"idp_name": "string"}], "signing_flow": "AUTHENTICATION_BASED"}], "title": "Business Process"}]`
+`[{"documents": [{"action": "SIGN", "document_collection_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0853", "document_id": "f05d0dce-a7af-432b-b6b8-e455ab7c0857"}], "due_date": "2025-04-01T17:32:28Z", "id": "f05d0dce-a7af-432b-b6b8-e455ab7c0852", "sender_display_name": "Corporation incorporated", "sign_text": "Please sign this document", "signature_url": "https://signtest-account.sandbox.signicat.com/sign/?sessionId=8ce3dac2-74b3-429c-adf7-fe6d277186d0", "signing_setup": [{"additional_parameters": {"sbid_end_user_ip": "127.0.0.1", "sbid_flow": "QR"}, "identity_providers": [{"idp_name": "string"}], "signing_flow": "AUTHENTICATION_BASED"}], "title": "Business Process"}]`
+

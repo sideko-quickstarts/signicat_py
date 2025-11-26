@@ -3,7 +3,6 @@ import typing
 import typing_extensions
 
 from .identity_provider import IdentityProvider
-from .signing_setup_additional_parameters import SigningSetupAdditionalParameters
 
 
 class SigningSetup(pydantic.BaseModel):
@@ -16,8 +15,8 @@ class SigningSetup(pydantic.BaseModel):
         populate_by_name=True,
     )
 
-    additional_parameters: typing.Optional[SigningSetupAdditionalParameters] = (
-        pydantic.Field(alias="additionalParameters", default=None)
+    additional_parameters: typing.Optional[typing.Dict[str, str]] = pydantic.Field(
+        alias="additionalParameters", default=None
     )
     """
     Additional parameters that modify the authentication flow. Depends on selected IdP. See <a href="https://developer.signicat.com/identity-methods/">developer documentation</a> for details.

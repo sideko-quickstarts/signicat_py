@@ -1,7 +1,7 @@
 import httpx
 import typing
 
-from signicat_dem_py.core import AsyncBaseClient, AuthBearer, SyncBaseClient
+from make_api_request import AsyncBaseClient, AuthBearer, SyncBaseClient
 from signicat_dem_py.environment import DEFAULT, Environment, ServerGroup, _get_base_url
 from signicat_dem_py.resources.dem import AsyncDemClient, DemClient
 from signicat_dem_py.resources.sign import AsyncSignClient, SignClient

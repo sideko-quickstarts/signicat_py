@@ -1,3 +1,261 @@
 {
-  "id": "a6092cce-5d7b-458a-b4de-debeadbe27d9"
+  "id": "ca5cacb5-8175-4ccb-be47-1b6db31323f5",
+  "tracked_paths": [
+    {
+      "editable": true,
+      "path": ".github/workflows/publish.yml"
+    },
+    {
+      "editable": true,
+      "path": ".github/workflows/run-tests.yml"
+    },
+    {
+      "editable": true,
+      "path": ".gitignore"
+    },
+    {
+      "editable": true,
+      "path": "pyproject.toml"
+    },
+    {
+      "editable": true,
+      "path": "signicat_dem_py/README.md"
+    },
+    {
+      "editable": true,
+      "path": "signicat_dem_py/__init__.py"
+    },
+    {
+      "editable": true,
+      "path": "signicat_dem_py/client.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/environment.py"
+    },
+    {
+      "editable": true,
+      "path": "signicat_dem_py/resources/dem/README.md"
+    },
+    {
+      "editable": true,
+      "path": "signicat_dem_py/resources/dem/__init__.py"
+    },
+    {
+      "editable": true,
+      "path": "signicat_dem_py/resources/dem/client.py"
+    },
+    {
+      "editable": true,
+      "path": "signicat_dem_py/resources/sign/README.md"
+    },
+    {
+      "editable": true,
+      "path": "signicat_dem_py/resources/sign/__init__.py"
+    },
+    {
+      "editable": true,
+      "path": "signicat_dem_py/resources/sign/client.py"
+    },
+    {
+      "editable": true,
+      "path": "signicat_dem_py/types/models/__init__.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/collection_output.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/document.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/document_collection.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/document_hash.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/document_reference.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/identity_provider.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/link.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/paginated_signing_session_response.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/post_document_response.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/pre_authentication.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/record_relation_response.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/record_response.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/redirect_settings.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/session_document.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/session_lifecycle.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/session_output.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/session_package.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/session_signature.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/signer.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/signing_session.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/signing_setup.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/stats.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/system_metadata.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/models/ui.py"
+    },
+    {
+      "editable": true,
+      "path": "signicat_dem_py/types/params/__init__.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/batch_update_ttl_request.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/collection_output.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/document_collection.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/document_hash.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/document_reference.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/identity_provider.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/pre_authentication.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/query_condition.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/query_request_body.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/record_request.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/redirect_settings.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/session_document.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/session_lifecycle.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/session_output.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/session_package.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/session_signature.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/set_expiry_date_request.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/signer.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/signing_session.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/signing_setup.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/ui.py"
+    },
+    {
+      "editable": false,
+      "path": "signicat_dem_py/types/params/update_document.py"
+    },
+    {
+      "editable": false,
+      "path": "tests/test_dem_client.py"
+    },
+    {
+      "editable": false,
+      "path": "tests/test_sign_client.py"
+    }
+  ]
 }

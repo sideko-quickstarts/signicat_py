@@ -3,10 +3,6 @@ import typing
 import typing_extensions
 
 from .identity_provider import IdentityProvider, _SerializerIdentityProvider
-from .signing_setup_additional_parameters import (
-    SigningSetupAdditionalParameters,
-    _SerializerSigningSetupAdditionalParameters,
-)
 
 
 class SigningSetup(typing_extensions.TypedDict):
@@ -15,7 +11,7 @@ class SigningSetup(typing_extensions.TypedDict):
     """
 
     additional_parameters: typing_extensions.NotRequired[
-        typing.Optional[SigningSetupAdditionalParameters]
+        typing.Optional[typing.Dict[str, str]]
     ]
     """
     Additional parameters that modify the authentication flow. Depends on selected IdP. See <a href="https://developer.signicat.com/identity-methods/">developer documentation</a> for details.
@@ -43,9 +39,9 @@ class _SerializerSigningSetup(pydantic.BaseModel):
         populate_by_name=True,
     )
 
-    additional_parameters: typing.Optional[
-        _SerializerSigningSetupAdditionalParameters
-    ] = pydantic.Field(alias="additionalParameters", default=None)
+    additional_parameters: typing.Optional[typing.Dict[str, str]] = pydantic.Field(
+        alias="additionalParameters", default=None
+    )
     identity_providers: typing.List[_SerializerIdentityProvider] = pydantic.Field(
         alias="identityProviders",
     )

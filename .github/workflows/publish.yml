@@ -58,3 +58,12 @@ jobs:
       - name: build & publish
         run: |
           poetry publish --build --username __token__ --password=${{ secrets.PYPI_TOKEN }}
+      #----------------------------------------------
+      #  -----  mark SDK as released in Sideko  -----
+      #----------------------------------------------
+      - name: install sideko cli
+        run: npm install -g @sideko/cli
+      - name: mark sdk as released
+        env:
+          SIDEKO_API_KEY: ${{ secrets.SIDEKO_API_KEY }}
+        run: sideko sdk released

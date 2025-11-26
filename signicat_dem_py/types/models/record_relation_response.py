@@ -2,7 +2,7 @@ import pydantic
 import typing
 import typing_extensions
 
-from .links import Links
+from .link import Link
 
 
 class RecordRelationResponse(pydantic.BaseModel):
@@ -15,7 +15,9 @@ class RecordRelationResponse(pydantic.BaseModel):
         populate_by_name=True,
     )
 
-    links: typing.Optional[Links] = pydantic.Field(alias="_links", default=None)
+    links: typing.Optional[typing.Dict[str, Link]] = pydantic.Field(
+        alias="_links", default=None
+    )
     relation_id: typing.Optional[str] = pydantic.Field(alias="relationID", default=None)
     type_: typing.Optional[
         typing_extensions.Literal[

@@ -1,7 +1,8 @@
+# dem
+
+## Module Functions
 
 ### GET /.ping <a name="signicat"></a>
-
-
 
 **API Endpoint**: `GET /.ping`
 
@@ -101,7 +102,7 @@ Aggregates all of the customer's records to return a list of all unique keys fro
 
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
-| `type` | ✓ | Optional parameter that narrows the result down based on the type of record. | `"string"` |
+| `type_` | ✓ | Optional parameter that narrows the result down based on the type of record. | `"string"` |
 
 #### Synchronous Client
 
@@ -212,6 +213,9 @@ Updates the Time to Live (TTL) of selected records by a defined query.<br>The qu
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
 | `query` | ✓ |  | `{}` |
+| `└─ and_` | ✗ |  | `[{"field": "string", "operator": "string", "value": "could be anything"}]` |
+| `└─ not_` | ✗ |  | `[{"field": "string", "operator": "string", "value": "could be anything"}]` |
+| `└─ or_` | ✗ |  | `[{"field": "string", "operator": "string", "value": "could be anything"}]` |
 | `ttl` | ✓ |  | `123` |
 
 #### Synchronous Client
@@ -283,11 +287,11 @@ Creates a new record. There are four required fields: "type", "metadata", "coreD
 
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
-| `coreData` | ✓ |  | `{}` |
+| `core_data` | ✓ |  | `{}` |
 | `metadata` | ✓ |  | `{}` |
 | `ttl` | ✓ |  | `123` |
-| `type` | ✓ |  | `"string"` |
-| `auditLevel` | ✗ |  | `"string"` |
+| `type_` | ✓ |  | `"string"` |
+| `audit_level` | ✗ |  | `"string"` |
 | `relations` | ✗ |  | `["string"]` |
 
 #### Synchronous Client
@@ -333,6 +337,9 @@ Queries the database to return a pageable list of records without coreData.<br>I
 | Parameter | Required | Description | Example |
 |-----------|:--------:|-------------|--------|
 | `data` | ✗ |  | `{}` |
+| `└─ and_` | ✗ |  | `[{"field": "string", "operator": "string", "value": "could be anything"}]` |
+| `└─ not_` | ✗ |  | `[{"field": "string", "operator": "string", "value": "could be anything"}]` |
+| `└─ or_` | ✗ |  | `[{"field": "string", "operator": "string", "value": "could be anything"}]` |
 | `page` | ✗ |  | `123` |
 | `size` | ✗ |  | `123` |
 
@@ -357,3 +364,4 @@ client = AsyncClient(token=getenv("API_TOKEN"))
 res = await client.dem.query()
 
 ```
+

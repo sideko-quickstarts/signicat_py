@@ -2,13 +2,13 @@ import pydantic
 import pytest
 import typing
 
+from make_api_request import BinaryResponse
 from signicat_dem_py import AsyncClient, Client
-from signicat_dem_py.core import BinaryResponse
 from signicat_dem_py.environment import SIDEKO_MOCK_SERVER
 from signicat_dem_py.types import models
 
 
-def test_query_200_success_required_only():
+def test_query_200_success_required_only() -> None:
     """Tests a POST request to the /records/query endpoint.
 
     Operation: query
@@ -30,15 +30,9 @@ def test_query_200_success_required_only():
     client = Client(token="API_TOKEN", environment=SIDEKO_MOCK_SERVER)
     response = client.dem.query(
         data={
-            "and_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
-            "not_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
-            "or_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
+            "and_": [{"field": "string", "operator": "string", "value": "{}"}],
+            "not_": [{"field": "string", "operator": "string", "value": "{}"}],
+            "or_": [{"field": "string", "operator": "string", "value": "{}"}],
         }
     )
     try:
@@ -50,7 +44,7 @@ def test_query_200_success_required_only():
 
 
 @pytest.mark.asyncio
-async def test_await_query_200_success_required_only():
+async def test_await_query_200_success_required_only() -> None:
     """Tests a POST request to the /records/query endpoint.
 
     Operation: query
@@ -72,15 +66,9 @@ async def test_await_query_200_success_required_only():
     client = AsyncClient(token="API_TOKEN", environment=SIDEKO_MOCK_SERVER)
     response = await client.dem.query(
         data={
-            "and_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
-            "not_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
-            "or_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
+            "and_": [{"field": "string", "operator": "string", "value": "{}"}],
+            "not_": [{"field": "string", "operator": "string", "value": "{}"}],
+            "or_": [{"field": "string", "operator": "string", "value": "{}"}],
         }
     )
     try:
@@ -91,7 +79,7 @@ async def test_await_query_200_success_required_only():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_query_200_success_all_params():
+def test_query_200_success_all_params() -> None:
     """Tests a POST request to the /records/query endpoint.
 
     Operation: query
@@ -113,15 +101,9 @@ def test_query_200_success_all_params():
     client = Client(token="API_TOKEN", environment=SIDEKO_MOCK_SERVER)
     response = client.dem.query(
         data={
-            "and_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
-            "not_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
-            "or_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
+            "and_": [{"field": "string", "operator": "string", "value": "{}"}],
+            "not_": [{"field": "string", "operator": "string", "value": "{}"}],
+            "or_": [{"field": "string", "operator": "string", "value": "{}"}],
         },
         page=123,
         size=123,
@@ -135,7 +117,7 @@ def test_query_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_query_200_success_all_params():
+async def test_await_query_200_success_all_params() -> None:
     """Tests a POST request to the /records/query endpoint.
 
     Operation: query
@@ -157,15 +139,9 @@ async def test_await_query_200_success_all_params():
     client = AsyncClient(token="API_TOKEN", environment=SIDEKO_MOCK_SERVER)
     response = await client.dem.query(
         data={
-            "and_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
-            "not_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
-            "or_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
+            "and_": [{"field": "string", "operator": "string", "value": "{}"}],
+            "not_": [{"field": "string", "operator": "string", "value": "{}"}],
+            "or_": [{"field": "string", "operator": "string", "value": "{}"}],
         },
         page=123,
         size=123,
@@ -178,7 +154,7 @@ async def test_await_query_200_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_post_new_record_201_success_all_params():
+def test_post_new_record_201_success_all_params() -> None:
     """Tests a POST request to the /records endpoint.
 
     Operation: post_new_record
@@ -215,7 +191,7 @@ def test_post_new_record_201_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_post_new_record_201_success_all_params():
+async def test_await_post_new_record_201_success_all_params() -> None:
     """Tests a POST request to the /records endpoint.
 
     Operation: post_new_record
@@ -251,7 +227,7 @@ async def test_await_post_new_record_201_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_set_expiry_date_204_success_all_params():
+def test_set_expiry_date_204_success_all_params() -> None:
     """Tests a PATCH request to the /records/{id} endpoint.
 
     Operation: set_expiry_date
@@ -278,7 +254,7 @@ def test_set_expiry_date_204_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_set_expiry_date_204_success_all_params():
+async def test_await_set_expiry_date_204_success_all_params() -> None:
     """Tests a PATCH request to the /records/{id} endpoint.
 
     Operation: set_expiry_date
@@ -304,7 +280,7 @@ async def test_await_set_expiry_date_204_success_all_params():
     assert response is None
 
 
-def test_set_expiry_dates_200_success_all_params():
+def test_set_expiry_dates_200_success_all_params() -> None:
     """Tests a PATCH request to the /records endpoint.
 
     Operation: set_expiry_dates
@@ -326,15 +302,9 @@ def test_set_expiry_dates_200_success_all_params():
     client = Client(token="API_TOKEN", environment=SIDEKO_MOCK_SERVER)
     response = client.dem.set_expiry_dates(
         query={
-            "and_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
-            "not_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
-            "or_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
+            "and_": [{"field": "string", "operator": "string", "value": "{}"}],
+            "not_": [{"field": "string", "operator": "string", "value": "{}"}],
+            "or_": [{"field": "string", "operator": "string", "value": "{}"}],
         },
         ttl=123,
     )
@@ -347,7 +317,7 @@ def test_set_expiry_dates_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_set_expiry_dates_200_success_all_params():
+async def test_await_set_expiry_dates_200_success_all_params() -> None:
     """Tests a PATCH request to the /records endpoint.
 
     Operation: set_expiry_dates
@@ -369,15 +339,9 @@ async def test_await_set_expiry_dates_200_success_all_params():
     client = AsyncClient(token="API_TOKEN", environment=SIDEKO_MOCK_SERVER)
     response = await client.dem.set_expiry_dates(
         query={
-            "and_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
-            "not_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
-            "or_": [
-                {"field": "string", "operator": "string", "value": "could be anything"}
-            ],
+            "and_": [{"field": "string", "operator": "string", "value": "{}"}],
+            "not_": [{"field": "string", "operator": "string", "value": "{}"}],
+            "or_": [{"field": "string", "operator": "string", "value": "{}"}],
         },
         ttl=123,
     )
@@ -389,7 +353,7 @@ async def test_await_set_expiry_dates_200_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_generate_report_200_success_all_params():
+def test_generate_report_200_success_all_params() -> None:
     """Tests a GET request to the /reports/{id} endpoint.
 
     Operation: generate_report
@@ -415,7 +379,7 @@ def test_generate_report_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_generate_report_200_success_all_params():
+async def test_await_generate_report_200_success_all_params() -> None:
     """Tests a GET request to the /reports/{id} endpoint.
 
     Operation: generate_report
@@ -442,7 +406,7 @@ async def test_await_generate_report_200_success_all_params():
     assert is_valid_binary, "failed response type check"
 
 
-def test_get_record_by_id_200_success_all_params():
+def test_get_record_by_id_200_success_all_params() -> None:
     """Tests a GET request to the /records/{id} endpoint.
 
     Operation: get_record_by_id
@@ -472,7 +436,7 @@ def test_get_record_by_id_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_get_record_by_id_200_success_all_params():
+async def test_await_get_record_by_id_200_success_all_params() -> None:
     """Tests a GET request to the /records/{id} endpoint.
 
     Operation: get_record_by_id
@@ -503,7 +467,7 @@ async def test_await_get_record_by_id_200_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_get_custom_meta_fields_200_success_all_params():
+def test_get_custom_meta_fields_200_success_all_params() -> None:
     """Tests a GET request to the /info/custom-fields/{type} endpoint.
 
     Operation: get_custom_meta_fields
@@ -529,7 +493,7 @@ def test_get_custom_meta_fields_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_get_custom_meta_fields_200_success_all_params():
+async def test_await_get_custom_meta_fields_200_success_all_params() -> None:
     """Tests a GET request to the /info/custom-fields/{type} endpoint.
 
     Operation: get_custom_meta_fields
@@ -554,7 +518,7 @@ async def test_await_get_custom_meta_fields_200_success_all_params():
     assert is_valid_binary, "failed response type check"
 
 
-def test_get_custom_meta_fields_1_200_success_all_params():
+def test_get_custom_meta_fields_1_200_success_all_params() -> None:
     """Tests a GET request to the /info/custom-fields endpoint.
 
     Operation: get_custom_meta_fields_1
@@ -580,7 +544,7 @@ def test_get_custom_meta_fields_1_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_get_custom_meta_fields_1_200_success_all_params():
+async def test_await_get_custom_meta_fields_1_200_success_all_params() -> None:
     """Tests a GET request to the /info/custom-fields endpoint.
 
     Operation: get_custom_meta_fields_1
@@ -605,7 +569,7 @@ async def test_await_get_custom_meta_fields_1_200_success_all_params():
     assert is_valid_binary, "failed response type check"
 
 
-def test_get_collection_stats_200_success_all_params():
+def test_get_collection_stats_200_success_all_params() -> None:
     """Tests a GET request to the /info endpoint.
 
     Operation: get_collection_stats
@@ -635,7 +599,7 @@ def test_get_collection_stats_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_get_collection_stats_200_success_all_params():
+async def test_await_get_collection_stats_200_success_all_params() -> None:
     """Tests a GET request to the /info endpoint.
 
     Operation: get_collection_stats
@@ -664,7 +628,7 @@ async def test_await_get_collection_stats_200_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_signicat_200_success_all_params():
+def test_signicat_200_success_all_params() -> None:
     """Tests a GET request to the /.ping endpoint.
 
     Operation: signicat
@@ -694,7 +658,7 @@ def test_signicat_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_signicat_200_success_all_params():
+async def test_await_signicat_200_success_all_params() -> None:
     """Tests a GET request to the /.ping endpoint.
 
     Operation: signicat

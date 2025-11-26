@@ -48,5 +48,4 @@ client = AsyncClient(token=getenv("API_TOKEN"))
 * [list_signing_sessions](signicat_dem_py/resources/sign/README.md#list_signing_sessions) - Retrieve a paginated list of signing sessions
 * [update_document_metadata](signicat_dem_py/resources/sign/README.md#update_document_metadata) - Store optional descriptive data about a stored document
 * [upload_document](signicat_dem_py/resources/sign/README.md#upload_document) - Upload a new document
-
 <!-- MODULE DOCS END -->

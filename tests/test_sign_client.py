@@ -9,7 +9,7 @@ from signicat_dem_py.environment import SIDEKO_MOCK_SERVER
 from signicat_dem_py.types import models
 
 
-def test_create_signing_session_201_success_all_params():
+def test_create_signing_session_201_success_all_params() -> None:
     """Tests a POST request to the /signing-sessions endpoint.
 
     Operation: create_signing_session
@@ -78,7 +78,10 @@ def test_create_signing_session_201_success_all_params():
                 },
                 "signing_setup": [
                     {
-                        "additional_parameters": {},
+                        "additional_parameters": {
+                            "sbid_end_user_ip": "127.0.0.1",
+                            "sbid_flow": "QR",
+                        },
                         "identity_providers": [{"idp_name": "string"}],
                         "signing_flow": "AUTHENTICATION_BASED",
                         "vendor": "AUDKENNI",
@@ -101,7 +104,7 @@ def test_create_signing_session_201_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_create_signing_session_201_success_all_params():
+async def test_await_create_signing_session_201_success_all_params() -> None:
     """Tests a POST request to the /signing-sessions endpoint.
 
     Operation: create_signing_session
@@ -170,7 +173,10 @@ async def test_await_create_signing_session_201_success_all_params():
                 },
                 "signing_setup": [
                     {
-                        "additional_parameters": {},
+                        "additional_parameters": {
+                            "sbid_end_user_ip": "127.0.0.1",
+                            "sbid_flow": "QR",
+                        },
                         "identity_providers": [{"idp_name": "string"}],
                         "signing_flow": "AUTHENTICATION_BASED",
                         "vendor": "AUDKENNI",
@@ -192,7 +198,7 @@ async def test_await_create_signing_session_201_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_upload_document_200_success_all_params():
+def test_upload_document_200_success_all_params() -> None:
     """Tests a POST request to the /documents endpoint.
 
     Operation: upload_document
@@ -223,7 +229,39 @@ def test_upload_document_200_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_create_document_collection_201_success_all_params():
+@pytest.mark.asyncio
+async def test_await_upload_document_200_success_all_params() -> None:
+    """Tests a POST request to the /documents endpoint.
+
+    Operation: upload_document
+    Test Case ID: success_all_params
+    Expected Status: 200
+    Mode: Asynchronous execution
+
+    Response : models.PostDocumentResponse
+
+    Validates:
+    - Authentication requirements are satisfied
+    - All required input parameters are properly handled
+    - Response status code is correct
+    - Response data matches expected schema
+
+    This test uses example data to verify the endpoint behavior.
+    """
+    # tests calling async method with example data
+    client = AsyncClient(token="API_TOKEN", environment=SIDEKO_MOCK_SERVER)
+    response = await client.sign.upload_document(
+        content_type="string", data=b"123"
+    )
+    try:
+        pydantic.TypeAdapter(models.PostDocumentResponse).validate_python(response)
+        is_valid_response_schema = True
+    except pydantic.ValidationError:
+        is_valid_response_schema = False
+    assert is_valid_response_schema, "failed response type check"
+
+
+def test_create_document_collection_201_success_all_params() -> None:
     """Tests a POST request to the /document-collections endpoint.
 
     Operation: create_document_collection
@@ -271,7 +309,7 @@ def test_create_document_collection_201_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_create_document_collection_201_success_all_params():
+async def test_await_create_document_collection_201_success_all_params() -> None:
     """Tests a POST request to the /document-collections endpoint.
 
     Operation: create_document_collection
@@ -318,7 +356,7 @@ async def test_await_create_document_collection_201_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_update_document_metadata_200_success_all_params():
+def test_update_document_metadata_200_success_all_params() -> None:
     """Tests a PATCH request to the /documents/{documentId}/metadata endpoint.
 
     Operation: update_document_metadata
@@ -356,7 +394,7 @@ def test_update_document_metadata_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_update_document_metadata_200_success_all_params():
+async def test_await_update_document_metadata_200_success_all_params() -> None:
     """Tests a PATCH request to the /documents/{documentId}/metadata endpoint.
 
     Operation: update_document_metadata
@@ -393,7 +431,7 @@ async def test_await_update_document_metadata_200_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_get_signing_session_200_success_all_params():
+def test_get_signing_session_200_success_all_params() -> None:
     """Tests a GET request to the /signing-sessions/{sessionId} endpoint.
 
     Operation: get_signing_session
@@ -425,7 +463,7 @@ def test_get_signing_session_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_get_signing_session_200_success_all_params():
+async def test_await_get_signing_session_200_success_all_params() -> None:
     """Tests a GET request to the /signing-sessions/{sessionId} endpoint.
 
     Operation: get_signing_session
@@ -456,7 +494,7 @@ async def test_await_get_signing_session_200_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_list_signing_sessions_200_success_required_only():
+def test_list_signing_sessions_200_success_required_only() -> None:
     """Tests a GET request to the /signing-sessions endpoint.
 
     Operation: list_signing_sessions
@@ -488,7 +526,7 @@ def test_list_signing_sessions_200_success_required_only():
 
 
 @pytest.mark.asyncio
-async def test_await_list_signing_sessions_200_success_required_only():
+async def test_await_list_signing_sessions_200_success_required_only() -> None:
     """Tests a GET request to the /signing-sessions endpoint.
 
     Operation: list_signing_sessions
@@ -519,7 +557,7 @@ async def test_await_list_signing_sessions_200_success_required_only():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_list_signing_sessions_200_success_all_params():
+def test_list_signing_sessions_200_success_all_params() -> None:
     """Tests a GET request to the /signing-sessions endpoint.
 
     Operation: list_signing_sessions
@@ -551,7 +589,7 @@ def test_list_signing_sessions_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_list_signing_sessions_200_success_all_params():
+async def test_await_list_signing_sessions_200_success_all_params() -> None:
     """Tests a GET request to the /signing-sessions endpoint.
 
     Operation: list_signing_sessions
@@ -584,7 +622,7 @@ async def test_await_list_signing_sessions_200_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_get_document_info_200_success_all_params():
+def test_get_document_info_200_success_all_params() -> None:
     """Tests a GET request to the /documents/{documentId}/metadata endpoint.
 
     Operation: get_document_info
@@ -616,7 +654,7 @@ def test_get_document_info_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_get_document_info_200_success_all_params():
+async def test_await_get_document_info_200_success_all_params() -> None:
     """Tests a GET request to the /documents/{documentId}/metadata endpoint.
 
     Operation: get_document_info
@@ -647,7 +685,7 @@ async def test_await_get_document_info_200_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_get_document_200_success_all_params():
+def test_get_document_200_success_all_params() -> None:
     """Tests a GET request to the /documents/{documentId} endpoint.
 
     Operation: get_document
@@ -674,7 +712,7 @@ def test_get_document_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_get_document_200_success_all_params():
+async def test_await_get_document_200_success_all_params() -> None:
     """Tests a GET request to the /documents/{documentId} endpoint.
 
     Operation: get_document
@@ -700,7 +738,7 @@ async def test_await_get_document_200_success_all_params():
     assert isinstance(response, httpx.Response)
 
 
-def test_get_document_collection_200_success_all_params():
+def test_get_document_collection_200_success_all_params() -> None:
     """Tests a GET request to the /document-collections/{documentCollectionId} endpoint.
 
     Operation: get_document_collection
@@ -732,7 +770,7 @@ def test_get_document_collection_200_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_get_document_collection_200_success_all_params():
+async def test_await_get_document_collection_200_success_all_params() -> None:
     """Tests a GET request to the /document-collections/{documentCollectionId} endpoint.
 
     Operation: get_document_collection
@@ -763,7 +801,7 @@ async def test_await_get_document_collection_200_success_all_params():
     assert is_valid_response_schema, "failed response type check"
 
 
-def test_delete_signing_session_204_success_all_params():
+def test_delete_signing_session_204_success_all_params() -> None:
     """Tests a DELETE request to the /signing-sessions/{sessionId} endpoint.
 
     Operation: delete_signing_session
@@ -790,7 +828,7 @@ def test_delete_signing_session_204_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_delete_signing_session_204_success_all_params():
+async def test_await_delete_signing_session_204_success_all_params() -> None:
     """Tests a DELETE request to the /signing-sessions/{sessionId} endpoint.
 
     Operation: delete_signing_session
@@ -816,7 +854,7 @@ async def test_await_delete_signing_session_204_success_all_params():
     assert response is None
 
 
-def test_delete_document_204_success_all_params():
+def test_delete_document_204_success_all_params() -> None:
     """Tests a DELETE request to the /documents/{documentId} endpoint.
 
     Operation: delete_document
@@ -843,7 +881,7 @@ def test_delete_document_204_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_delete_document_204_success_all_params():
+async def test_await_delete_document_204_success_all_params() -> None:
     """Tests a DELETE request to the /documents/{documentId} endpoint.
 
     Operation: delete_document
@@ -869,7 +907,7 @@ async def test_await_delete_document_204_success_all_params():
     assert response is None
 
 
-def test_delete_document_collection_204_success_all_params():
+def test_delete_document_collection_204_success_all_params() -> None:
     """Tests a DELETE request to the /document-collections/{documentCollectionId} endpoint.
 
     Operation: delete_document_collection
@@ -896,7 +934,7 @@ def test_delete_document_collection_204_success_all_params():
 
 
 @pytest.mark.asyncio
-async def test_await_delete_document_collection_204_success_all_params():
+async def test_await_delete_document_collection_204_success_all_params() -> None:
     """Tests a DELETE request to the /document-collections/{documentCollectionId} endpoint.
 
     Operation: delete_document_collection

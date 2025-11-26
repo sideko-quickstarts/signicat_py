@@ -1,7 +1,7 @@
 import pydantic
 import typing
 
-from .links import Links
+from .link import Link
 from .record_relation_response import RecordRelationResponse
 from .system_metadata import SystemMetadata
 
@@ -16,7 +16,9 @@ class RecordResponse(pydantic.BaseModel):
         populate_by_name=True,
     )
 
-    links: typing.Optional[Links] = pydantic.Field(alias="_links", default=None)
+    links: typing.Optional[typing.Dict[str, Link]] = pydantic.Field(
+        alias="_links", default=None
+    )
     core_data: typing.Optional[typing.Dict[str, typing.Any]] = pydantic.Field(
         alias="coreData", default=None
     )

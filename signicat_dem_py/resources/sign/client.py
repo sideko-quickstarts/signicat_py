@@ -2,7 +2,7 @@ import httpx
 import typing
 import typing_extensions
 
-from signicat_dem_py.core import (
+from make_api_request import (
     AsyncBaseClient,
     QueryParams,
     RequestOptions,
@@ -33,7 +33,7 @@ class SignClient:
         DELETE /document-collections/{documentCollectionId}
 
         Args:
-            documentCollectionId: The unique ID of the document collection.
+            document_collection_id: The unique ID of the document collection.
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -73,7 +73,7 @@ class SignClient:
         DELETE /documents/{documentId}
 
         Args:
-            documentId: Document ID parameter
+            document_id: Document ID parameter
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -111,7 +111,7 @@ class SignClient:
         DELETE /signing-sessions/{sessionId}
 
         Args:
-            sessionId: str
+            session_id: str
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -151,7 +151,7 @@ class SignClient:
         GET /document-collections/{documentCollectionId}
 
         Args:
-            documentCollectionId: The unique ID of the document collection.
+            document_collection_id: The unique ID of the document collection.
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -189,7 +189,7 @@ class SignClient:
         GET /documents/{documentId}
 
         Args:
-            documentId: Document ID parameter
+            document_id: Document ID parameter
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -225,7 +225,7 @@ class SignClient:
         GET /documents/{documentId}/metadata
 
         Args:
-            documentId: Document ID parameter
+            document_id: Document ID parameter
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -339,7 +339,7 @@ class SignClient:
         GET /signing-sessions/{sessionId}
 
         Args:
-            sessionId: str
+            session_id: str
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -395,13 +395,13 @@ class SignClient:
         PATCH /documents/{documentId}/metadata
 
         Args:
-            createdAt: str
+            created_at: str
             description: A description of the document for display purposes. Optional metadata about the stored document which the customer can supply.
-            documentHash: DocumentHash
+            document_hash: DocumentHash
             filename: A name to use if the document is to be stored as a file. Optional metadata about the stored document which the customer can supply.
-            mimeType: str
+            mime_type: str
             title: A title of the document for display purposes. Optional metadata about the stored document which the customer can supply.
-            documentId: Document ID parameter
+            document_id: Document ID parameter
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -470,7 +470,7 @@ class SignClient:
         Args:
             id: The unique ID of the document collection.
             output: CollectionOutput
-            packageTo: A list of formats the collection should be packaged to when all sessions connected to it are signed.
+            package_to: A list of formats the collection should be packaged to when all sessions connected to it are signed.
             documents: typing.List[DocumentReference]
             request_options: Additional options to customize the HTTP request
 
@@ -530,7 +530,7 @@ class SignClient:
         POST /documents
 
         Args:
-            Content-Type: Content type header
+            content_type: Content type header
             data: httpx._types.FileTypes
             request_options: Additional options to customize the HTTP request
 
@@ -607,7 +607,10 @@ class SignClient:
                     "signature_url": "https://signtest-account.sandbox.signicat.com/sign/?sessionId=8ce3dac2-74b3-429c-adf7-fe6d277186d0",
                     "signing_setup": [
                         {
-                            "additional_parameters": {},
+                            "additional_parameters": {
+                                "sbid_end_user_ip": "127.0.0.1",
+                                "sbid_flow": "QR",
+                            },
                             "identity_providers": [{"idp_name": "string"}],
                             "signing_flow": "AUTHENTICATION_BASED",
                         }
@@ -650,7 +653,7 @@ class AsyncSignClient:
         DELETE /document-collections/{documentCollectionId}
 
         Args:
-            documentCollectionId: The unique ID of the document collection.
+            document_collection_id: The unique ID of the document collection.
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -690,7 +693,7 @@ class AsyncSignClient:
         DELETE /documents/{documentId}
 
         Args:
-            documentId: Document ID parameter
+            document_id: Document ID parameter
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -730,7 +733,7 @@ class AsyncSignClient:
         DELETE /signing-sessions/{sessionId}
 
         Args:
-            sessionId: str
+            session_id: str
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -770,7 +773,7 @@ class AsyncSignClient:
         GET /document-collections/{documentCollectionId}
 
         Args:
-            documentCollectionId: The unique ID of the document collection.
+            document_collection_id: The unique ID of the document collection.
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -808,7 +811,7 @@ class AsyncSignClient:
         GET /documents/{documentId}
 
         Args:
-            documentId: Document ID parameter
+            document_id: Document ID parameter
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -846,7 +849,7 @@ class AsyncSignClient:
         GET /documents/{documentId}/metadata
 
         Args:
-            documentId: Document ID parameter
+            document_id: Document ID parameter
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -960,7 +963,7 @@ class AsyncSignClient:
         GET /signing-sessions/{sessionId}
 
         Args:
-            sessionId: str
+            session_id: str
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -1016,13 +1019,13 @@ class AsyncSignClient:
         PATCH /documents/{documentId}/metadata
 
         Args:
-            createdAt: str
+            created_at: str
             description: A description of the document for display purposes. Optional metadata about the stored document which the customer can supply.
-            documentHash: DocumentHash
+            document_hash: DocumentHash
             filename: A name to use if the document is to be stored as a file. Optional metadata about the stored document which the customer can supply.
-            mimeType: str
+            mime_type: str
             title: A title of the document for display purposes. Optional metadata about the stored document which the customer can supply.
-            documentId: Document ID parameter
+            document_id: Document ID parameter
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -1091,7 +1094,7 @@ class AsyncSignClient:
         Args:
             id: The unique ID of the document collection.
             output: CollectionOutput
-            packageTo: A list of formats the collection should be packaged to when all sessions connected to it are signed.
+            package_to: A list of formats the collection should be packaged to when all sessions connected to it are signed.
             documents: typing.List[DocumentReference]
             request_options: Additional options to customize the HTTP request
 
@@ -1151,7 +1154,7 @@ class AsyncSignClient:
         POST /documents
 
         Args:
-            Content-Type: Content type header
+            content_type: Content type header
             data: httpx._types.FileTypes
             request_options: Additional options to customize the HTTP request
 
@@ -1228,7 +1231,10 @@ class AsyncSignClient:
                     "signature_url": "https://signtest-account.sandbox.signicat.com/sign/?sessionId=8ce3dac2-74b3-429c-adf7-fe6d277186d0",
                     "signing_setup": [
                         {
-                            "additional_parameters": {},
+                            "additional_parameters": {
+                                "sbid_end_user_ip": "127.0.0.1",
+                                "sbid_flow": "QR",
+                            },
                             "identity_providers": [{"idp_name": "string"}],
                             "signing_flow": "AUTHENTICATION_BASED",
                         }

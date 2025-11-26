@@ -1,6 +1,6 @@
 import typing
 
-from signicat_dem_py.core import (
+from make_api_request import (
     AsyncBaseClient,
     BinaryResponse,
     QueryParams,
@@ -124,7 +124,7 @@ class DemClient:
         GET /info/custom-fields/{type}
 
         Args:
-            type: Optional parameter that narrows the result down based on the type of record.
+            type_: Optional parameter that narrows the result down based on the type of record.
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -325,12 +325,12 @@ class DemClient:
         POST /records
 
         Args:
-            auditLevel: str
+            audit_level: str
             relations: typing.List[str]
-            coreData: typing.Dict[str, typing.Any]
+            core_data: typing.Dict[str, typing.Any]
             metadata: typing.Dict[str, typing.Any]
             ttl: int
-            type: str
+            type_: str
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -547,7 +547,7 @@ class AsyncDemClient:
         GET /info/custom-fields/{type}
 
         Args:
-            type: Optional parameter that narrows the result down based on the type of record.
+            type_: Optional parameter that narrows the result down based on the type of record.
             request_options: Additional options to customize the HTTP request
 
         Returns:
@@ -750,12 +750,12 @@ class AsyncDemClient:
         POST /records
 
         Args:
-            auditLevel: str
+            audit_level: str
             relations: typing.List[str]
-            coreData: typing.Dict[str, typing.Any]
+            core_data: typing.Dict[str, typing.Any]
             metadata: typing.Dict[str, typing.Any]
             ttl: int
-            type: str
+            type_: str
             request_options: Additional options to customize the HTTP request
 
         Returns:
